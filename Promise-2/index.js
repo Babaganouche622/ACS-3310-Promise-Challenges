@@ -16,7 +16,15 @@ function asyncNumberChecker(n) {
 // returned by asyncNumberChecker .then() and .catch()
 // Display the returned message in the console.
 
-asyncNumberChecker(10)
+asyncNumberChecker(10).then((message) => {
+  console.log(message);
+}).catch((err) => {
+  console.log(err);
+});
 
 
-asyncNumberChecker(5)
+asyncNumberChecker(5).then((message) => {
+  console.log(message);
+}).catch((err) => {
+  console.log(err);
+});

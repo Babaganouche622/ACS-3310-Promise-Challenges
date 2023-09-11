@@ -37,9 +37,20 @@ greet('Your name') // Returns a Promise
 
 // Challenges: get greet() to fail by passing a non string value
 // What happens? 
+// This will reject immediately and actually print first because they resolve asyncronously. 
+greet(100)
+  .then(str => uppercaser(str))
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
 
 // Challenge: get uppercaser() to fail by passing a non string value
 // What happens? 
+// Interesting, this time instead of failing and being the second to print as I thought, it actually takes longer than the first one to print.
+greet('Your name')
+  .then(str => uppercaser(100))
+  .then(str => console.log(str))
+  .catch(err => console.log(err))
 
 // Challenge: Notice there is only a single .catch() at the end. 
 // Explain the behavior?
+// If either step of our daisy chain of function and .then() fails, it will go to the catch block. 
